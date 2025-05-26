@@ -1,11 +1,10 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 function Header() {
   const menu = [
-    "Add Students",
-    "Edit Students",
-    "Student details",
-    "View Students",
+    {page: "Add Students", path:"/addstudents" },
+    {page: "View Students", path:"/" },
   ]
 
   return (
@@ -14,12 +13,22 @@ function Header() {
         <div className="flex items-center justify-between h-16">
           <div className="flex space-x-4">
             {menu.map((item, index) => (
-              <div
-                key={index}
-                className="px-4 py-2 rounded-md hover:bg-blue-700 transition duration-200 cursor-pointer"
-              >
-                {item}
-              </div>
+
+              <NavLink to={item.path} style={
+                  ({isActive})=>({
+                    color: isActive?"red":"white",
+                    textDecoration: isActive?"underline":"none",
+                  })
+                } >
+                <div
+                  key={index}
+                  className="px-4 py-2 rounded-md hover:bg-blue-700 transition duration-200 cursor-pointer"
+                >
+                  {item.page}  
+                </div>
+                  
+              </NavLink>
+              
             ))}
           </div>
         </div>

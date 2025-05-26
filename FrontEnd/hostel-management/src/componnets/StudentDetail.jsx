@@ -1,6 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function StudentDetail() {
+
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
       <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
@@ -17,7 +21,7 @@ function StudentDetail() {
         </div>
 
         <div className="flex justify-between mt-8">
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md w-full mr-2">
+          <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md w-full mr-2" onClick={()=>navigate("/editstudents")}>
             Update
           </button>
           <button className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md w-full ml-2">

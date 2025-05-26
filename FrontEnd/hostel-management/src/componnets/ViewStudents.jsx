@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 function ViewStudents() {
   const students = [
@@ -7,6 +8,8 @@ function ViewStudents() {
     { name: "Sneha Sharma", regno: "AIT456", hostel: "Girls Hostel" },
     { name: "Arjun Mehta", regno: "AIT789", hostel: "Teen ka dibba 1" },
   ];
+
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-12 px-4">
@@ -28,6 +31,7 @@ function ViewStudents() {
                   <tr
                     key={index}
                     className="hover:bg-blue-50 transition duration-200"
+                    onClick={()=>navigate("/studentdetails")}
                   >
                     <td className="px-6 py-4 font-medium">{student.name}</td>
                     <td className="px-6 py-4">{student.regno}</td>
